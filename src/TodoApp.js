@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 
 // components
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 // materialUI
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
 
 const TodoApp = () => {
 
@@ -18,6 +18,10 @@ const TodoApp = () => {
   ]
 
   const [todos, setTodos] = useState(initialTodos);
+
+  const addTodo = (newTodo) => {
+    setTodos([...todos, {id: 4, task: newTodo, completed: false}])
+  }
 
   return (
     <Paper 
@@ -38,6 +42,7 @@ const TodoApp = () => {
           <Typography color='inherit'>TODO APP</Typography>
         </Toolbar>
       </AppBar> 
+      <TodoForm addTodo={addTodo}/>
       <TodoList todos={todos}/>
     </Paper>
   );
