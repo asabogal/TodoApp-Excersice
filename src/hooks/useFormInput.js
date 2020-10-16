@@ -4,7 +4,7 @@ const useFormInput = (initialValue) => {
 
   const [value, setValue] = useState(initialValue);
   const handleChange = (e) => {
-    setValue(e.taget.value);
+    setValue(e.target.value);
   }
 
   const reset = () => {
