@@ -7,13 +7,13 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, deleteTodo}) => {
   return (
     <Paper>
       <List>
       {todos.map(todo => (
         <>
-          <Todo key={todo.id} task={todo.task} completed={todo.completed}/>
+          <Todo key={todo.id} id={todo.id} task={todo.task} completed={todo.completed} deleteTodo={deleteTodo}/>
           <Divider/>
         </>
       ))}
