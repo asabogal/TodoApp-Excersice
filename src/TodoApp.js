@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { v4 as uuid } from 'uuid';
 
 // components
 import TodoList from './components/TodoList';
@@ -21,7 +22,7 @@ const TodoApp = () => {
   const [todos, setTodos] = useState(initialTodos);
 
   const addTodo = (newTodo) => {
-    setTodos([...todos, {id: 4, task: newTodo, completed: false}])
+    setTodos([...todos, {id: uuid(), task: newTodo, completed: false}])
   }
 
   const deleteTodo = (id) => {
