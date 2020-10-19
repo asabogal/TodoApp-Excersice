@@ -15,8 +15,8 @@ const Todo = ({id, task, completed, deleteTodo}) => {
       <Checkbox checked={completed}/>
       <ListItemText style={{textDecoration: completed ? 'line-through' : 'none'}}>{task}</ListItemText>
       <ListItemSecondaryAction>
-        <IconButton aria-label='Delete'>
-          <DeleteIcon onClick={() => deleteTodo(id)}/>
+        <IconButton aria-label='Delete' onClick={() => deleteTodo(id)}>
+          <DeleteIcon/>
         </IconButton>
         <IconButton aria-label='Edit'>
           <EditIcon/>
