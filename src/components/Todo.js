@@ -9,10 +9,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 
-const Todo = ({id, task, completed, deleteTodo}) => {
+const Todo = ({id, task, completed, deleteTodo, updateCompleted}) => {
   return (
     <ListItem>
-      <Checkbox checked={completed}/>
+      <Checkbox checked={completed} onClick={() => updateCompleted(id)}/>
       <ListItemText style={{textDecoration: completed ? 'line-through' : 'none'}}>{task}</ListItemText>
       <ListItemSecondaryAction>
         <IconButton aria-label='Delete' onClick={() => deleteTodo(id)}>
