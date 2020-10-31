@@ -7,7 +7,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 
 
-const TodoList = ({todos, deleteTodo, updateCompleted}) => {
+const TodoList = ({todos, deleteTodo, updateCompleted, editTodo}) => {
   return (
     <Paper>
       <List>
@@ -19,6 +19,7 @@ const TodoList = ({todos, deleteTodo, updateCompleted}) => {
            completed={todo.completed} 
            deleteTodo={deleteTodo}
            updateCompleted={updateCompleted}
+           editTodo={editTodo}
            />
           <Divider/>
         </>
