@@ -4,9 +4,9 @@ import useFormInput from '../hooks/useFormInput';
 // materialUI
 import TextField from '@material-ui/core/TextField';
 
-const EditTodoForm = ({id, editTodo, toggleEditing}) => {
+const EditTodoForm = ({id, task, editTodo, toggleEditing}) => {
 
-  const [value, handleChange, reset] = useFormInput('');
+  const [value, handleChange, reset] = useFormInput(task);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,12 +16,18 @@ const EditTodoForm = ({id, editTodo, toggleEditing}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}
+      style={{
+      width: '73%',
+      margin: '1rem'
+    }}
+    >
       <TextField 
         margin='normal' 
         value={value} 
         onChange={handleChange} 
         fullWidth
+        autoFocus
       />
     </form>
   );
