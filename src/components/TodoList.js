@@ -11,7 +11,7 @@ const TodoList = ({todos, deleteTodo, updateCompleted, editTodo}) => {
   return (
     <Paper>
       <List>
-      {todos.map(todo => (
+      {todos.map((todo, i) => (
         <>
           <Todo
            key={todo.id} 
@@ -21,10 +21,9 @@ const TodoList = ({todos, deleteTodo, updateCompleted, editTodo}) => {
            updateCompleted={updateCompleted}
            editTodo={editTodo}
            />
-          <Divider/>
+          {i < todos.length - 1 && <Divider/>}
         </>
       ))}
-
       </List>
     </Paper>
   );
