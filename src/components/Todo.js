@@ -12,13 +12,13 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 
-const Todo = ({id, task, completed, deleteTodo, updateCompleted}) => {
+const Todo = ({id, task, completed, deleteTodo, updateCompleted, editTodo}) => {
 
   const [editing, toggleEditing] = useToggleState(false);
  
   return (
     <ListItem>
-    {editing ? <EditTodoForm/>: 
+    {editing ? <EditTodoForm id={id} editTodo={editTodo} toggleEditing={toggleEditing}/>: 
     <>
       <Checkbox checked={completed} onClick={() => updateCompleted(id)}/>
       <ListItemText style={{textDecoration: completed ? 'line-through' : 'none'}}>{task}</ListItemText>
