@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { v4 as uuid } from 'uuid';
 
 // components
@@ -13,13 +13,13 @@ import Grid from '@material-ui/core/Grid';
 
 const TodoApp = () => {
 
-  const initialTodos = [
-    {id: 1, task: 'Finish App', completed: false},
-    {id: 2, task: 'Upload App', completed: false},
-    {id: 3, task: 'Uopdate Portfolio', completed: false}
-  ]
+  const initialTodos = JSON.parse(window.localStorage.getItem('todos') || '[]');
 
   const [todos, setTodos] = useState(initialTodos);
+
+  useEffect(() => {
+    window.localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
 
   const addTodo = (newTodo) => {
     setTodos([...todos, {id: uuid(), task: newTodo, completed: false}])
