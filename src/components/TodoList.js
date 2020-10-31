@@ -8,6 +8,8 @@ import Divider from '@material-ui/core/Divider';
 
 
 const TodoList = ({todos, deleteTodo, updateCompleted, editTodo}) => {
+
+  if (todos.length)
   return (
     <Paper>
       <List>
@@ -27,6 +29,7 @@ const TodoList = ({todos, deleteTodo, updateCompleted, editTodo}) => {
       </List>
     </Paper>
   );
+  return null;
 };
 
 export default TodoList;
